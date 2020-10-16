@@ -19,21 +19,23 @@ function solve()
     /* Initialize the stack at the first element */
     var stack = [ { x: instance.start.x, y: instance.start.y, neighbors: dirs.shuffle() } ] ;
     
-    /* Add a new breadcrumb every zillisecond */
-    setTimeout(function() { solver(instance, stack) }, 10);
+    /* Add a new breadcrumb every tench of a zillisecond */
+    setTimeout(function() { solver(instance, stack) }, 1);
     
     /* Disable the form button again */
     document.forms.mazeform.slv.disabled = true;
+
+    
 }
 
 /**
  * Indicate we want to stop
- * also will be used for doing a 302 to the destnation
  */
 function stopSolver()
 {
     stop = true;
-//    window.location.href = "https://fcps.edu";
+
+    //    window.location.href = "https://fcps.edu";
 
 }
 
@@ -60,6 +62,11 @@ function solver(maze, stack)
     if((x == (columns - 1)) && (y == (rows - 1)))
     {
         stopSolver();  // done
+
+        
+        document.getElementById("txt").innerHTML = "Done!"
+        window.setTimeout(function () {window.location.href = "https://www.fcps.edu"}, 3000)
+
         return;
     }  
     
@@ -103,4 +110,7 @@ function solver(maze, stack)
     {
         setTimeout(function () { solver(maze, stack) }, 10);
     }
+
+
+    
 }

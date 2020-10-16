@@ -442,6 +442,7 @@ window.onload = function()
 {
     document.forms.mazeform.bld.disabled = false;   
     checkURL();
+
 }
 
 /**
@@ -566,12 +567,12 @@ function dom(nrows, ncolumns, nsize, ntype, seed)
     instance.build();
     
     /* show the permalink */
-    var mazeid =  xor(type + ";" + seed + ";" + rows + ";" + columns + ";" + size);
+    /*var mazeid =  xor(type + ";" + seed + ";" + rows + ";" + columns + ";" + size);
     
     document.getElementById("permalink").innerHTML = mazeid;
     document.getElementById("permalink").setAttribute("href", "/maze-generator" + "?" + mazeid);
     document.getElementById("permatext").style.visibility = "visible";
-    
+    */
     /* tell the form not to actually submit anything */
     return false;
 }
