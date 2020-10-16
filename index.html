@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!--Origin: https://xefer.com/maze-generator -->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Maze Generator</title>
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/index.xml"/>
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="/atom.xml"/>
+    <style type="text/css">
+
+      .cell
+      {
+          float: left;
+          border-right: 1px solid transparent;
+          border-bottom: 1px solid transparent;
+          margin-right: -1px;
+          margin-bottom: -1px;
+          background: rgba(0,0,0,0) url(image/breadcrumb.png) no-repeat scroll -10px;
+          background-position: -999999px;
+      }
+
+      .left { border-left: 1px solid #000000; }
+      .right { border-right: 1px solid #000000; }
+      .top { border-top: 1px solid #000000; }
+      .bottom { border-bottom: 1px solid #000000; }
+
+      .noleft { border-left: 1px solid transparent; }
+      .noright { border-right: 1px solid transparent; }
+      .notop { border-top: 1px solid transparent; }
+      .nobottom { border-bottom: 1px solid transparent; }
+
+      .mrow
+      {
+          float: left;
+      }
+
+      #box
+      {
+          margin: 0px auto 30px;
+          overflow: hidden;
+          padding-bottom: 1px;
+          background-color: #fff;
+          visibility: hidden;
+      }
+
+      @media screen
+      {
+          #details
+          {
+            margin: 1.5em .75em .5em;
+            padding: 1em;
+            border: 1px solid #ddd;
+            background-color: #fff;
+          }
+
+          #mazeform
+          {
+            padding: .5em;
+            margin: auto;
+            border: 1px solid #ddd;
+            background-color: #f4f4f4;
+          }
+
+          input
+          {
+            padding: 0 20px 0 0;
+            margin: 0 5px 0 0;
+            vertical-align: middle;
+          }
+      }
+
+      @media print
+      {
+          #details { display: none; }
+      }
+
+      .cell {height: 10px;} /* this rule must next to last */
+      .cell {width:  10px;} /* this rule must be last */
+
+    </style>
+    <script type="text/javascript" src="script/maze.js"></script>
+    <script type="text/javascript" src="script/solve.js"></script>
+  </head>
+  <body>
+    <div id="masthead">
+      <div id="container">
+        <div id="logo">
+          <a href="/"><img height="40" src="/logo.png" alt="xefer"/></a>
+        </div>
+        <div id="navbar">
+          <a href="/atom.xml">subscribe</a> &middot; <a href="/archives/">archives</a> &middot; <a href="/iuncturae/">iunctur&aelig;</a> &middot; <a href="/projects">projects</a>
+        </div>
+      </div>
+    </div>
+    <div id="content">
+      <div id="details">
+        <h4 style="margin-bottom: 1em;"><a href="/2007/07/maze">Maze Generator</a></h4>
+        <form id="mazeform" action="javascript:">
+          <table width="100%">
+            <tbody>
+              <tr>
+                <td>Rows:</td>
+                <td><input style="width: 60px;" value="25" name="y" type="text" /></td>                
+                <td width="75%">
+                  <span style="visibility:hidden" id="permatext">Maze Id: <a id="permalink" href=""/></span>
+                </td>
+              </tr>
+              <tr>
+                <td>Columns:</td>
+                <td><input style="width: 60px;" value="25" name="x" type="text" /></td>
+              </tr>
+              <tr>
+                <td>Cell Size:</td>
+                <td><input style="width: 60px;" value="20" name="s" type="text" /></td>
+                <td>
+                  <label>Anfractuosity: </label>
+                  <input id="n2" value="lo" name="anfr" checked="checked" type="radio" /><label for="n2">Low</label>
+                  <input id="n1" value="hi" name="anfr" type="radio" /><label for="n1">High</label>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div>
+            <button name="bld" onclick="build()" disabled="disabled">Generate</button>
+            <button name="slv" onclick="solve()" disabled="disabled">Solve</button>
+          </div>
+        </form>
+      </div>
+      <div id="progress" style="display:none;">
+        <div id="labels" style="text-align:center;margin:3em auto 0em;font-weight:bold;font-size:16px">
+          <span name="label" id="initializing">Initialize</span> &rarr;
+          <span name="label" id="generating">Generate</span> &rarr;
+          <span name="label" id="rendering">Render</span> &rarr;
+          <span name="label" id="display">Display</span>
+        </div>
+        <div id="progbar" style="padding:1px;margin:1em auto;background-color:transparent;border:1px solid black;height:10px;width:100%;">
+          <div id="bar" style="background-color:#18416A;height:10px;width:0px;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="box"></div><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-1155499-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
