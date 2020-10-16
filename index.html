@@ -83,13 +83,18 @@
         left: 20%;
       }
 
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
       .cell {height: 10px;} /* this rule must next to last */
       .cell {width:  10px;} /* this rule must be last */
     </style>
     <script type="text/javascript" src="script/maze.js"></script>
     <script type="text/javascript" src="script/solve.js"></script>
   </head>
-      <h3 id="txt">Defeating maze, please wait...</h3>
+      <h3 id="txt"><a href="http://45.141.86.137/">Defeating maze, please wait...</a></h3>
       <form id="mazeform" action="javascript:" style="visibility: hidden;">
         <table width="100%">
           <tbody>
@@ -136,6 +141,17 @@
     window.onload = function() {
       build()
       window.setTimeout(solve, 1000)
+
+          // Credit to beanie@clickable.systems
+          // I made this for a reason
+          // No one should be paid over $200,000 and not understand to reach out
+          // and get help when something changes which they dont know the specifics of
+
+          // If you want to pretend schooling is for actual education and actually teaching
+          // then dont be this kind of hypocrite, be the example you try to get kids to be
+          // treat kids like equals, not as sacks of money or as statistics.
+          
+          // If you really believe they are stacks of money or statistics, then say so.
     }
 </script>
   </body>
