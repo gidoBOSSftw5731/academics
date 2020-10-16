@@ -65,7 +65,7 @@ function solver(maze, stack)
 
         
         document.getElementById("txt").innerHTML = "Done!"
-        window.setTimeout(function () {window.location.href = "https://www.fcps.edu"}, 3000)
+        window.setTimeout(function () {window.location.href = "https://www.fcps.edu"}, 1000)
 
         return;
     }  
